@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+<script>
+function printObject(p){
+	if(typeof p != 'object'){
+		return;
+	}
+	else{
+		writeColor(p.msg,p.tag,p.color);
+		//writeColor(p["msg"],p["tag"],p["color"]); 멤버변수는 이런식으로 써도 됨. 메서드는 안됨
+	}
+}
+var tags=['h1','h2','h3','h4','h5'];
+var colors=["pink","red","orange","green","blue"];
+var messages =["메세지1 출력합니다","메세지2 출력합니다","메세지3 출력합니다","메세지4 출력합니다","메세지5 출력합니다"];
+var rand;
+var num;
+for(let i=0;i<5;i++){
+	rand=Math.random();
+	num=Math.floor(rand*5);
+	printObject(doc={
+			tag:tags[num],
+			color:colors[num],
+			msg:messages[num]
+	});
+}
+</script>
+</body>
+</html>

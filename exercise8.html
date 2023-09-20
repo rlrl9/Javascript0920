@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+function printH1(content){
+	document.write("<h1>"+content+"</h1>");
+}
+function printH4(content){
+	document.write("<h4>"+content+"</h4>");
+}
+function apply(a,b){
+	if(Array.isArray(a)&&typeof b== 'function'){
+		for(let e of a){
+			b(e);
+		}
+		return true;
+	}
+	else
+	{
+		console.log("아규먼트 오류");
+		return false;
+	}
+}
+var arr=[];
+while(true){
+	var data=window.prompt("데이터 입력해주세요");
+	if(!data){
+		break;
+	}
+	arr.push(data);
+}
+var rand=Math.random();
+var num= Math.floor(rand*10)+1;
+console.log(num);
+if(num==1||num==4||num==6){
+	if(apply(arr,printH1)){
+		window.alert("처리성공");
+	}
+	else{
+		window.alert("처리실패");
+	}
+}
+else if(num==3||num==5||num==7){
+	if(apply(arr,printH4)){
+		window.alert("처리성공");
+	}
+	else{
+		window.alert("처리실패");
+	}
+}
+else if(num==8||num==9){
+	if(apply("ㅋㅋ",printH1)){
+		window.alert("처리성공");
+	}
+	else{
+		window.alert("처리실패");
+	}
+}
+else{
+	if(apply(arr)){
+		window.alert("처리성공");
+	}
+	else{
+		window.alert("처리실패");
+	}
+}
+</script>
+</body>
+</html>
