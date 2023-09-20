@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var num= Math.floor(Math.random()*3)+1;
+var sites=["http://www.daum.net","http://www.naver.com/","http://www.google.com"];
+
+const answer = window.confirm("이동하시겠습니까?");
+if (answer){
+	window.open(sites[num-1]);
+}else{
+	location.href="./first.html";
+}
+</script>
+</body>
+</html>

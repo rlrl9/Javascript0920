@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="util.js"></script>
+<script>
+function DayInfo(name,year,month,day){
+	this.name=name;
+	this.year=year;
+	this.month=month;
+	this.day=day;
+	
+}
+DayInfo.prototype.getTotalDates = function (){
+	const birth = new Date(this.year,this.month-1,this.day);
+	const today = new Date();
+	const diff=today-birth;
+	const diffDay = Math.floor(diff / (1000*60*60*24));
+	return `${this.name}님은 태어난지 ${diffDay}일 되었어요.`;
+}
+DayInfo.prototype.getKorDay = function (){
+	const birth = new Date(this.year,this.month-1,this.day);
+	let gday=birth.getDay();
+	var days=['일','월','화','수','목','금','토'];
+	return `${this.name}님은 ${days[gday]}요일에 태어났어요.`;
+}
+const infos = [
+    new DayInfo("가가가",1997,1,3),  
+    new DayInfo("나나나",1998,12,6),
+    new DayInfo("다다다",2023,9,20)
+];
+var colors=["red","orange","purple"];
+for(let i=0;i<3;i++){
+	writeColor(infos[i].getTotalDates(),"h3",colors[i]);
+	writeColor(infos[i].getKorDay(),"h3",colors[i]);
+}
+</script>
+</body>
+</html>
